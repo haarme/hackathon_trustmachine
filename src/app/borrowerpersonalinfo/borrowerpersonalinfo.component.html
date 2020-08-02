@@ -1,0 +1,76 @@
+<!-- <ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header >
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;"/>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header> -->
+<!-- <ion-content style="--background: #f3f3f305;">
+    <ion-grid style="margin: 0px 15px; font-size: 20px; color: #494949; margin-top: 40px;">
+        <ion-row style="margin-bottom: 10px;">
+            <ion-col><h3>Borrower Personal Information</h3>
+                
+            </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;">
+            <ion-col>
+                <ion-button type="submit" class="button"><i class="fa fa-check-circle" aria-hidden="true"></i> Save</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content> -->
+
+
+<ion-content>
+    <div style="margin: 20px;">
+        <ion-item lines="none">
+            <ion-col style="  text-align: left; padding-top: 20px; padding-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 30px; font-weight: bold; color:#ffffff">Personal</div>
+                <div style="font-size: 20px; font-weight: 400; color:#fed100">Profile</div>
+            </ion-col>
+        </ion-item>
+        
+        <ion-item lines="full" style="margin-top: 20%;">
+            <ion-label position="floating">FULL NAME</ion-label>
+            <ion-input [(ngModel)]="name" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">MOBILE</ion-label>
+            <ion-input [(ngModel)]="mobile" type="text" placeholder="+254 721 xxxxxx"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label>DATE OF BIRTH</ion-label>
+            <ion-datetime [(ngModel)]="dob" placeholder="Select Date"></ion-datetime>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label>LEVEL OF EDUCATION</ion-label>
+            <ion-select value="notifications" placeholder="Select One" interface="action-sheet" [(ngModel)]="education">
+                <ion-select-option *ngFor="let item of educationList" value="{{item}}">
+                    {{item}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label>NATURE OF BUSINESS</ion-label>
+            <ion-select placeholder="Select One" interface="action-sheet">
+                <ion-select-option *ngFor="let item of businessList" value="{{item}}">
+                    {{item}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+  
+        <ion-row>
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button type="submit" class="button" (click)="next()">FINISH</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

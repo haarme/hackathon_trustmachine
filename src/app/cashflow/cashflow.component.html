@@ -1,0 +1,84 @@
+<ion-content>
+  <div style="margin-top: 20%;">
+      <ion-item lines="none">
+          <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px;;" class="ion-align-self-center">
+              <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                  Cash
+                  <span style="font-size: 22px; font-weight: 400; color:#646464">Flow</span>
+              </div>
+          </ion-col>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>DATE</ion-label>
+        <ion-datetime placeholder="Select" displayFormat="MMMM YYYY"></ion-datetime>
+    </ion-item>
+
+      <h3 style="margin-left: 15px; color:#fe007f; margin-bottom: 10px;">OPERATING ACTIVITIES</h3>
+
+      <ion-item lines="full">
+          <ion-label position="floating">CASH RECEIVED</ion-label>
+          <ion-input  type="text" placeholder="$ x,xx,xxx" [(ngModel)]="cashReceived"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">CASH PAID ON GOODS AND SERVICES</ion-label>
+          <ion-input  type="text" placeholder="$ x,xx,xxx" [(ngModel)]="cashOnGoodsAndService"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">EMPLOYEE COSTS PAID</ion-label>
+          <ion-input type="text" placeholder="$ x,xx,xxx" [(ngModel)]="employeeCostPaid"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">OTHER ASSETS</ion-label>
+          <ion-input type="text" placeholder="$ x,xx,xxx" [(ngModel)]="otherAssets"></ion-input>
+      </ion-item>
+
+      <h3 style="margin-left: 15px; color:#fe007f; margin-bottom: 10px;">INVESTING ACTIVITIES</h3>
+
+      <ion-item lines="full">
+          <ion-label position="floating">ASSET PURCHASES AND SALE</ion-label>
+          <ion-input  type="text" placeholder="$ x,xx,xxx" [(ngModel)]="assetPurchaseAndSale"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">INVESTMENTS</ion-label>
+          <ion-input  type="text" placeholder="$ x,xx,xxx" [(ngModel)]="investments"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">INTEREST RECEIVED</ion-label>
+          <ion-input type="text" placeholder="$ x,xx,xxx" [(ngModel)]="interestReceived"></ion-input>
+      </ion-item>
+
+      <h3 style="margin-left: 15px; color:#fe007f; margin-bottom: 10px;">FINANCING ACTIVITIES</h3>
+
+      <ion-item lines="full">
+          <ion-label position="floating">DEBT DRAWDOWN</ion-label>
+          <ion-input  type="text" placeholder="$ x,xx,xxx" [(ngModel)]="debtDrawDown"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">CAPITAL REPAYMENT</ion-label>
+          <ion-input  type="text" placeholder="$ x,xx,xxx" [(ngModel)]="capitalRepayment"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">EQUITY RELEASED</ion-label>
+          <ion-input type="text" placeholder="$ x,xx,xxx" [(ngModel)]="equityRelease"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+          <ion-label position="floating">DIVIDEND PAYMENTS</ion-label>
+          <ion-input type="text" placeholder="$ x,xx,xxx" [(ngModel)]="dividendPayments"></ion-input>
+      </ion-item>
+     
+      <ion-row>
+        <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+            <ion-button type="submit" class="button" (click)="save()">SAVE</ion-button>
+        </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

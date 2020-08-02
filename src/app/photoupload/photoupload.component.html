@@ -1,0 +1,33 @@
+<ion-content>
+    <div style="margin: 20px;">
+        <ion-item lines="none">
+            <ion-col style="  text-align: left; padding-top: 20px; padding-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 30px; font-weight: bold; color:#ffffff">Upload</div>
+                <div style="font-size: 20px; font-weight: 400; color:#fed100">Photo</div>
+            </ion-col>
+        </ion-item>
+        
+        <ion-item lines="none">
+            <ion-col style="  text-align: right; padding-top: 10px; padding-bottom: 10px;" class="ion-align-self-center">
+                <div style="font-size: 18px; font-weight: bold; color:#c9c9c9" (click)="selectImage()">
+                    <ion-icon name="camera"></ion-icon> <br>
+                    Chooose Photo
+                </div>
+            </ion-col>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-top: 10%;">
+            <ion-thumbnail class="avatars">
+                <img [src]="dataService.avatarUrl"  class="avatars" style="width: 100%;"
+                    onerror="this.onerror=null;
+                    this.src='assets/images/profile.png';" />
+            </ion-thumbnail>
+        </ion-item>
+
+        <ion-row>
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button type="submit" class="button" (click)="next()">NEXT</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

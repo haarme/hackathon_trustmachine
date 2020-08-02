@@ -1,0 +1,40 @@
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header >
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;"/>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="--background: #f3f3f305;">
+    <ion-grid style="margin: 0px 15px; font-size: 20px; color: #494949; margin-top: 40px;">
+        <ion-row *ngFor="let item of borrowerList;" style="margin: 0px; padding: 0px; margin-bottom: 10px; border-bottom: groove 1px #d3d3d3; padding-bottom: 5px;">
+            <ion-col size="2" style=" padding: 10px; text-align: right;">
+                <img [src]="item.avatarUrl"
+                    onerror="this.onerror=null;
+                    this.src='assets/images/profile.png';" 
+                    style="width: 20px; height: 20px; border-radius: 50%;"/>
+            </ion-col>
+            <ion-col size="6" (click)="chooseBorrower(item)">
+                <strong style="font-size: 14px; color: #383838; margin-bottom: 3px;">{{item.name}}</strong>
+            </ion-col>
+            <ion-col size="3">
+                <i class="fa fa-comments fa-1x" style="margin-right: 25px;" aria-hidden="true" (click)="chat(item)"></i>
+                <i class="fa fa-address-book-o fa-1x" aria-hidden="true" (click)="review(item)"></i>
+                <!-- <span *ngIf="dataService.chatMessageCount > 0" (click)="chat(item)" style="width: 15px;height: 15px; position: absolute; top:5px; right:48px; background-color: red; color:#ffffff; display: block; border-radius: 50%; text-align: center; font-size: 10px;">
+                    {{dataService.chatMessageCount}}
+                </span> -->
+            </ion-col>
+        </ion-row>
+
+        <!-- <ion-row style="text-align: center;">
+            <ion-col>
+                <ion-button type="submit" class="button" (click)="accept()"><i class="fa fa-check-circle" aria-hidden="true"></i> Accept</ion-button>
+                <ion-button type="submit" class="button" (click)="reject()"><i class="fa fa-times-circle" aria-hidden="true"></i> Reject</ion-button>
+            </ion-col>
+        </ion-row> -->
+    </ion-grid>
+</ion-content>

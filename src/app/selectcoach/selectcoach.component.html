@@ -1,0 +1,140 @@
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;" />
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="--background: #f3f3f305;">
+    <ion-grid style="margin: 0px 15px; font-size: 20px; color: #494949; margin-top: 30px;">
+        <ion-item lines="none">
+            <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px;"
+                class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                    Select
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Coach</span>
+                </div>
+            </ion-col>
+        </ion-item>
+
+        <div *ngFor="let item of coachList; let i = index">
+            <ion-row style="margin: 0px;">
+                <ion-col size="1">
+                    <ion-avatar class="avatar">
+                        <img [src]="item.avatarUrl" 
+                            onerror="this.onerror=null;
+                            this.src='assets/images/profile.png';" 
+                            style="width: 30px; height: 30px; border-radius: 50%;"/>
+                    </ion-avatar>
+                </ion-col>
+                <ion-col size="4" style="margin-left: 10px; margin-top: 0px; padding-top: 0px;">
+                    <strong style="font-size: 17px; color: #383838;">{{item.name}}</strong> <br />
+                    <!-- <strong style="font-size: 12px; color: #747474;">{{item.userType}}</strong><br /> -->
+                    <i class="fa fa-star" *ngIf="i == 0" style="margin-right: 5px; color: #f70469; font-size: 17px;"> 5.0</i>
+                    <i class="fa fa-star" *ngIf="i == 1" style="margin-right: 5px; color: #f70469; font-size: 17px;"> 5.0</i>
+                    <i class="fa fa-star" *ngIf="i == 2" style="margin-right: 5px; color: #f70469; font-size: 17px;"> 4.9</i>
+                    <i class="fa fa-star" *ngIf="i == 3" style="margin-right: 5px; color: #f70469; font-size: 17px;"> 4.9</i>
+                </ion-col>
+                <ion-col size="5" style="font-size: 14px; text-align: right;">
+                    <span *ngIf="i == 1">
+                        Total <strong>10 coached</strong><br />
+                        Total experience <strong>7 years</strong><br />
+                        Expertise in <strong>Agriculture</strong>
+                    </span>
+                    <span *ngIf="i == 0">
+                        Total <strong>15 coached</strong><br />
+                        Total experience <strong>8 years</strong><br />
+                        Expertise in <strong>Agriculture</strong>
+                    </span>
+                    <span *ngIf="i == 2">
+                        Total <strong>5 coached</strong><br />
+                        Total experience <strong>5 years</strong><br />
+                        Expertise in <strong>Agriculture</strong>
+                    </span>
+                    <span *ngIf="i == 3">
+                        Total <strong>8 coached</strong><br />
+                        Total experience <strong>4 years</strong><br />
+                        Expertise in <strong>Agriculture</strong>
+                    </span>
+                </ion-col>
+                <ion-col size="1" style="text-align: center;">
+                    <!-- <i class="fa fa-check-square-o fa-2x" style="color:#ff37ee; padding-left: 5px;" (click)="chooseCoach(item.uid, item.email, item.name, item.avatarUrl)"></i> -->
+                    <ion-radio style="color:#ff37ee; margin-left: 10px;" (click)="chooseCoach(item.uid, item.email, item.name, item.avatarUrl)"></ion-radio>
+                </ion-col>
+            </ion-row>
+            <ion-row style="margin: 0px;">
+                <div style="display: block; margin: 5px;"><strong>Comments:</strong></div>
+            </ion-row>
+            <ion-row style="font-size: 14px; margin: 0px; margin-bottom: 20px;">
+                <ion-label *ngIf="i == 1">1. Great coach and mentor, always available</ion-label>
+                <ion-label *ngIf="i == 1">2. Amazing coach! Explained everything as we went through and got me my business extension loan </ion-label>
+
+                <ion-label *ngIf="i == 0">1. Very helpful answered questions and concerns very quickly</ion-label>
+                <ion-label *ngIf="i == 0">2. He was flawless in his management of our home purchase. An incredibly thoughtful communicator.</ion-label>
+                <ion-label *ngIf="i == 0">3. Mark was absolutely great to work with. He was extremely clear, thorough and patient as he guided my wife and I through the process. He was also very timely and worked hard to make sure everything was ready to go before closing.</ion-label>
+
+                <!-- <ion-label *ngIf="i == 2">1. Highly recommended, helped me get my first loan in under 1 week</ion-label><br />
+                <ion-label *ngIf="i == 2">2. Great coach, unfortunately I didn't finish my loan application</ion-label> -->
+
+                <ion-label *ngIf="i == 2">1. Highly recommended, helped me get my first loan in under 1 week</ion-label>
+                <ion-label *ngIf="i == 2">2. Great coach, unfortunately I didn't finish my loan application</ion-label>
+
+                <ion-label *ngIf="i == 3">1. Highly recommended, helped me get my first loan in under 1 week</ion-label>
+                <ion-label *ngIf="i == 3">2. Great coach, unfortunately I didn't finish my loan application</ion-label>
+            </ion-row>
+
+        </div>
+
+        
+            
+            <!-- <ion-row>
+                <strong style="font-size: 18px; color: #383838;">Expertise: Agriculture </strong> <br />
+            </ion-row>
+            <ion-row>
+                <strong style="font-size: 18px; color: #383838;">Experience: 5Yrs </strong> <br />
+            </ion-row>
+            <ion-row>
+                <strong style="font-size: 18px; color: #383838;">Borrowers Coached: 9 </strong> <br />
+            </ion-row> -->
+            <!-- <ion-row>
+                <ion-list>
+                    <ion-item *ngIf="i == 1">
+                        <ion-label>***** Highly recommended, helped me get my first loan in under 1 week</ion-label>
+                    </ion-item>
+                    <ion-item *ngIf="i == 0">
+                        <ion-label>***** Great coach and mentor, always available</ion-label>
+                    </ion-item>
+                </ion-list>
+                <ion-list>
+                    <ion-item *ngIf="i == 1">
+                        <ion-label>**** Great coach, unfortunately I didn't finish my loan application</ion-label>
+                    </ion-item>
+                    <ion-item *ngIf="i == 0">
+                        <ion-label>***** Amazing coach! Explained everything as we went through and got me my business extension loan </ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-row> -->
+            <!-- <ion-row>
+                <i class="fa fa-check-square-o fa-2x" (click)="chooseCoach(item.uid, item.email, item.name, item.avatarUrl)"></i>
+            </ion-row> -->
+        <!-- <ion-row *ngFor="let item of coachList; let i = index">
+            <ion-col size="2">
+                <img [src]="item.avatarUrl" 
+                    onerror="this.onerror=null;
+                    this.src='assets/images/profile.png';" 
+                    style="width: 40px; height: 40px; border-radius: 50%;"/>
+            </ion-col>
+            <ion-col size="8">
+                <strong style="font-size: 22px; color: #383838;">{{item.name}}</strong> <br />
+                <strong style="font-size: 14px; color: #747474;">{{item.userType}}</strong>
+            </ion-col>
+            <ion-col size="2">
+                <i class="fa fa-check-square-o fa-2x" (click)="chooseCoach(item.uid, item.email, item.name, item.avatarUrl)"></i>
+            </ion-col>
+        </ion-row> -->
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,135 @@
+<ion-tabs selectedIndex="1" class="tab-button">
+
+</ion-tabs>
+
+<ion-menu side="start" menuId="first" contentId="menuContent">
+
+    <ion-content center text-center *ngIf="dataService.userType === 'coach'">
+        <ion-buttons center style="text-align: center;position: relative; top:2%; left:20%;">
+            <img src="assets/images/logo-tm2.png" style="padding:10px; width: 160px; text-align: center; " />
+        </ion-buttons>
+        <ion-item (click)="navigateFromSideMenu('user/coachdashboard');" style="margin-top:50px">Home</ion-item>
+        <ion-item (click)="navigateFromSideMenu('user/borrowerlist');">Borrowers</ion-item>
+    </ion-content>
+
+    <ion-content center text-center *ngIf="dataService.userType === 'borrower'">
+        <ion-buttons center style="text-align: center;position: relative; top:2%; left:20%;">
+            <img src="assets/images/logo-tm2.png" style="padding:10px; width: 160px; text-align: center; " />
+        </ion-buttons>
+        <ion-item (click)="navigateFromSideMenu('user/userdashboard');" style="margin-top:50px">Home</ion-item>
+        <ion-item (click)="navigateFromSideMenu('user/borrowerbusinessinfo');">Business Information</ion-item>
+        <ion-item (click)="navigateFromSideMenu('user/cashflow');">Balance Sheet</ion-item>
+        <!-- <ion-item (click)="navigateFromSideMenu('user/questionnaire');">Questionnaire</ion-item> -->
+        <ion-item (click)="navigateFromSideMenu('user/selectcoach');" *ngIf="!dataService.coachEmail">Select Coach</ion-item>
+        <ion-item (click)="navigateFromSideMenu('user/chat');">Chat with Coach</ion-item>
+        <ion-item (click)="navigateFromSideMenu('user/educate');">Learn</ion-item>
+    </ion-content>
+
+    <ion-footer>
+        <ion-toolbar>
+            <ion-avatar class="avatar" slot="start">
+                <img [src]="dataService.avatarUrl" 
+                    onerror="this.onerror=null;
+                    this.src='assets/images/profile.png';" 
+                    style="width: 40px; height: 40px; margin: 10px; margin-left: 30px;"/>
+            </ion-avatar>
+            <strong style="font-size: 22px; color: #f0f0f0; margin-left: 20px;">{{dataService.name}}</strong> <br >
+            <strong style="font-size: 14px; color: #d1d1d1; margin-left: 20px;">{{dataService.userType}}</strong>
+        </ion-toolbar>
+    </ion-footer>
+</ion-menu>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm1.png" style="width: 120px;"  />
+        </ion-buttons>
+        <!-- <ion-avatar class="avatar" slot="end" (click)="navigateFromSideMenu('user/chat');">
+            <img src="assets/images/profile_image_1.png" style="width: 50px; height: 50px; margin: 5px 0px; margin-right: 10px;"/>
+            <span *ngIf="dataService.chatMessageCount > 0" style="width: 25px;height: 25px; position: absolute; top:5px; right:48px; background-color: red; color:#ffffff; display: block; border-radius: 50%; text-align: center; padding-top: 3px;">
+                {{dataService.chatMessageCount}}
+            </span>
+        </ion-avatar> -->
+        <div style="font-size: 12px; color:#e4e4e4; margin-right: 5px; padding: 5px 0px; width: 90%; text-align: right;" *ngIf="dataService.coachEmail" (click)="navigate('user/chat')">
+            <span style="font-size: 22px; color:#ffffff; font-weight: 400; padding-left: 25px;">
+                <i class="fa fa-comments-o" style="margin-right: 1px;"></i> Chat
+            </span>
+            <br /><span style="padding-left: 50px;">with coach</span>
+        </div>
+    </ion-toolbar>
+    <ion-content class="coachalert" *ngIf="coachMappingList.length > 0" style="padding: 20px; height: 40px; vertical-align: middle;">
+        <div *ngIf="(coachMappingList.length - 1) > 0" style="background-color: #e5ff00; width:30px; height: 20px; border-radius: 20%; padding: 2px; position: absolute; top:22px; z-index: 999; right: 10px;">
+            +{{coachMappingList.length - 1}}
+        </div>
+        <ion-row *ngFor="let item of coachMappingList;" style="padding:5px 5px 20px 20px;">
+            <ion-col size="1">
+                <img [src]="item.avatarUrl" 
+                    onerror="this.onerror=null;
+                    this.src='assets/images/profile.png';" 
+                    style="width: 20px; height: 20px; border-radius: 50%;"/>
+            </ion-col>
+            <ion-col size="4">
+                <strong style="font-size: 16px; color: #383838;">{{item.borrowerName}}</strong> <br />
+            </ion-col>
+            <ion-col size="7" style="font-size: 11px; padding-top: 10px;">
+                <span (click)="accept(item)" style="margin-right: 10px;"><i class="fa fa-check-circle" aria-hidden="true"></i> Accept</span>
+                <span (click)="reject(item)" style="margin-right: 10px;"><i class="fa fa-times-circle" aria-hidden="true"></i> Reject</span>
+                <span (click)="review(item)" ><i class="fa fa-address-book-o" aria-hidden="true"></i> Review</span>
+            </ion-col>
+        </ion-row>
+    </ion-content>
+
+    <ion-content class="coachalert" *ngIf="coachResponseList.length > 0 && coachResponseListShow && dataService.showNotification === true" style="padding: 20px; height: 40px; vertical-align: middle;">
+        <ion-row *ngFor="let item of coachResponseList;" style="padding:5px 5px 20px 20px;">
+            <ion-col size="10" style="margin-top:3px;">
+                <strong style="font-size: 18px; color: #383838;">{{item.coachName}} <u><i>{{item.status}}</i></u> your request</strong>
+            </ion-col>
+            <ion-col size="2" style="font-size: 12px; padding-top: 5px; padding-left: 25px;">
+                <span (click)="closeMessage()"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></span>
+            </ion-col>
+        </ion-row>
+    </ion-content>
+
+
+
+
+    <ion-content class="coachalert" *ngIf="coachProductSuggestedList.length > 0 && dataService.showNotification === true" style="padding: 20px; height: 40px; vertical-align: middle;">
+        <ion-row *ngFor="let item of coachProductSuggestedList;" style="padding:5px 5px 20px 20px;">
+            <ion-col size="7">
+                <strong style="font-size: 16px; color: #383838;">Your have recieved loan suggestions</strong> <br />
+            </ion-col>
+            <ion-col size="4" style="font-size: 11px; padding-top: 10px;">
+                <span (click)="navigate('user/suggestedproducts')" style="margin-right: 10px;"><i class="fa fa-eye" aria-hidden="true"></i> View</span>
+                <span (click)="dataService.showNotification=false" style="margin-right: 10px;"><i class="fa fa-close" aria-hidden="true"></i> Hide</span>
+            </ion-col>
+        </ion-row>
+    </ion-content>
+
+    <ion-content class="coachalert" *ngIf="notificationMessage">
+        <ion-row  style="margin:5px; vertical-align: middle;">
+            <ion-col size="9">
+                <strong style="font-size: 16px; color: #383838;">{{ notificationMessage }}</strong>
+            </ion-col>
+            <ion-col size="3" style="font-size: 11px;">
+                <span (click)="navigateToReview()" style="margin-right: 10px;"><i class="fa fa-eye" aria-hidden="true"></i> View</span>
+                <span (click)="notificationMessage=''" style="margin-right: 10px;"><i class="fa fa-close" aria-hidden="true"></i> Hide</span>
+            </ion-col>
+        </ion-row>
+    </ion-content>
+
+    
+
+    <!-- <ion-content class="coachalert" *ngIf="coachProductSuggestedResponseList.length > 0 && coachProductSuggestedResponseListShow" style="padding: 20px; height: 40px; vertical-align: middle;">
+        <ion-row *ngFor="let item of coachProductSuggestedResponseList;" style="padding:5px 5px 20px 20px;">
+            <ion-col size="7">
+                <strong style="font-size: 18px; color: #383838;">{{item.borrowerName}} <u><i>modified</i></u> your suggestions</strong>
+            </ion-col>
+            <ion-col size="4" style="font-size: 11px; padding-top: 10px;">
+                <span (click)="navigate('user/suggestproductsforborrower')" style="margin-right: 10px;"><i class="fa fa-eye" aria-hidden="true"></i> View</span>
+                <span (click)="coachProductSuggestedResponseListShow=!coachProductSuggestedResponseListShow"><i class="fa fa-times-circle" aria-hidden="true"></i> Cancel</span>
+            </ion-col>
+        </ion-row>
+    </ion-content> -->
+</ion-header>

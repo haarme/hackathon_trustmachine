@@ -1,0 +1,44 @@
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;" />
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div style="margin: 20px;">
+        <ion-item lines="none">
+            <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                    Suggested
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Products</span>
+                </div>
+            </ion-col>
+        </ion-item>
+
+        <ion-grid style="margin: 0px 5px; font-size: 20px; color: #790579; ">
+            <ion-row>
+                <ion-list>
+                    <ion-radio-group [(ngModel)]="selectedProduct">
+                        <ion-item *ngFor="let item of productList">
+                            <ion-label>
+                                <strong>{{dataService.currencyCode}}{{item.name}}</strong> at <strong>{{item.percentage}}%</strong> for <strong>{{item.years}} years</strong>
+                                <br /><span style="padding-top: 5px; color: #850991;" *ngIf="item.ischecked">(recommended by coach)</span>
+                            </ion-label>
+                            <ion-radio slot="start" [value]="item.id"></ion-radio>
+                        </ion-item>
+                    </ion-radio-group>
+                </ion-list>
+            </ion-row>
+            <ion-row>
+                <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                    <ion-button type="submit" class="button" (click)="save()">SUBMIT</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

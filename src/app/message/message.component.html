@@ -1,0 +1,20 @@
+<div>
+  <div *ngIf="sender === dataService.email" style="background-color: #e3e0ff; margin-left: 50px; border-radius: 5px; padding: 2px;">
+    <ion-row style="padding: 5px;">
+        {{messageContent}}
+    </ion-row>
+    <ion-row style="font-size: 12px; color: rgb(117, 117, 117); text-align: right;">
+        <ion-col>{{timeStamp}}</ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf="sender === recieverEmail && reciever === dataService.email" style="background-color: #beb8f8; margin-right: 50px; border-radius: 5px; padding: 2px;">
+    <ion-row style="padding: 5px;">
+        {{messageContent}}
+    </ion-row>
+    <ion-row style="font-size: 12px; color: rgb(117, 117, 117); text-align: right;">
+        <ion-col>{{timeStamp}}</ion-col>
+    </ion-row>
+  </div>
+
+</div>

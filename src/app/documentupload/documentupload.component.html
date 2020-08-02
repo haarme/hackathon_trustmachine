@@ -1,0 +1,35 @@
+<ion-content>
+    <div style="margin-top: 30%;">
+        <ion-item lines="none">
+            <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                    Upload
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Identity Document</span>
+                </div>
+            </ion-col>
+        </ion-item>
+        
+        <ion-item lines="none">
+            <ion-col style="  text-align: right; padding-top: 10px; padding-bottom: 10px;" class="ion-align-self-center">
+                <div style="font-size: 18px; font-weight: bold; color:#c9c9c9" (click)="selectImage()">
+                    <ion-icon name="camera"></ion-icon> <br>
+                    Chooose Document
+                </div>
+            </ion-col>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-top: 20%;">
+            <ion-thumbnail class="avatars">
+                <img [src]="documentUrl"  class="avatars" style="width: 100%;"
+                    onerror="this.onerror=null;
+                    this.src='assets/images/id.png';" />
+            </ion-thumbnail>
+        </ion-item>
+
+        <ion-row>
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button type="submit" class="button" (click)="next()">SUBMIT</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

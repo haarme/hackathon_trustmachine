@@ -1,0 +1,216 @@
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;" />
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="--background: #ffffff; margin: 20px;">
+    <ion-item lines="none" style="margin-top: 10%;">
+        <ion-thumbnail class="avatars">
+            <img [src]="userInfo?.avatarUrl" class="avatars" style="width: 100%;" onerror="this.onerror=null;
+                this.src='assets/images/profile.png';" />
+        </ion-thumbnail>
+    </ion-item>
+    <ion-row>
+        <div style="text-align: center; width: 100%;">
+            {{userInfo?.name}}
+        </div>
+    </ion-row>
+    <ion-row style=" text-align: center;">
+        <div style="text-align: center; width: 100%;font-size: 12px;">
+            {{userInfo?.languageId}}
+        </div>
+    </ion-row>
+
+
+    <ion-item lines="none">
+        <ion-col
+            style="text-align: left; padding-top: 30px; padding-bottom: 10px; border-bottom: solid 1px #ebebeb; margin-bottom: 10px;"
+            class="ion-align-self-center">
+            <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                Personal
+                <span style="font-size: 22px; font-weight: 400; color:#646464">Info</span>
+            </div>
+        </ion-col>
+    </ion-item>
+    <ion-row lines="none">
+        <i class="fa fa-envelope-o" style="margin-right: 5px;"></i>{{userInfo?.email}}
+    </ion-row>
+    <ion-row lines="none">
+        <i class="fa fa-phone" style="padding: 0px; margin: 0px; margin-right: 5px;"></i>{{userInfo?.mobile}}
+    </ion-row>
+    <ion-row lines="none">
+        <i class="fa fa-book" style="padding: 0px; margin: 0px; margin-right: 5px;"></i>{{userInfo?.education}}
+    </ion-row>
+
+
+    <ion-item lines="none">
+        <ion-col
+            style="text-align: left; padding-top: 30px; padding-bottom: 10px; border-bottom: solid 1px #ebebeb; margin-bottom: 10px;"
+            class="ion-align-self-center">
+            <div style="font-size: 22px; font-weight: bold; color:#694ed6af">
+                Business
+                <span style="font-size: 22px; font-weight: 400; color:#646464">Info</span>
+            </div>
+        </ion-col>
+    </ion-item>
+    <ion-row lines="none">
+        Is your business: <span *ngIf="userInfo?.businessinfo?.isBusinessNew"
+            style="margin-left: 10px; font-weight: bolder;">New</span>
+        <span *ngIf="!userInfo?.businessinfo?.isBusinessNew"
+            style="margin-left: 10px; font-weight: bolder;">Existing</span>
+    </ion-row>
+    <ion-row lines="none">
+        Nature of business: <strong style="margin-left: 10px;">Agriculture</strong>
+    </ion-row>
+    <ion-row lines="none">
+        # Employees: <strong style="margin-left: 10px;">{{employeesList[userInfo?.businessinfo?.employees]}}</strong>
+    </ion-row>
+    <ion-row lines="none">
+        Years in business : <strong style="margin-left: 10px;">{{yearList[userInfo?.businessinfo?.year]}}</strong>
+    </ion-row>
+
+    <span *ngIf="userInfo?.balanceSheet">
+        <ion-item lines="none">
+            <ion-col
+                style="text-align: left; padding-top: 30px; padding-bottom: 10px; border-bottom: solid 1px #ebebeb; margin-bottom: 10px;"
+                class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af">
+                    Balance
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Sheet</span>
+                </div>
+            </ion-col>
+        </ion-item>
+
+        <h6 style="margin-top: 10px; margin-left: 25px; color:#fe007f; margin-bottom: 10px;">ASSETS</h6>
+
+        <ion-row lines="none">
+            <div id="divAssets" style="width:100%; height:200px;"></div>
+        </ion-row>
+        <ion-row lines="none">
+            Cash and Cash Equivalent: <strong
+                style="margin-left: 10px; color: #18b42d;">{{this.dataService.currencyCode}}
+                {{userInfo?.balanceSheet?.cashAndCashEquivalent}}</strong>
+        </ion-row>
+        <ion-row lines="none">
+            Accounts Receivable: <strong style="margin-left: 10px; color: #18b42d;">{{this.dataService.currencyCode}}
+                {{userInfo?.balanceSheet?.accountsReceivable}}</strong>
+        </ion-row>
+        <ion-row lines="none">
+            Inventory: <strong style="margin-left: 10px; color: #18b42d;">{{this.dataService.currencyCode}}
+                {{userInfo?.balanceSheet?.inventory}}</strong>
+        </ion-row>
+        <ion-row lines="none">
+            Other Assets: <strong style="margin-left: 10px; color: #18b42d;">{{this.dataService.currencyCode}}
+                {{userInfo?.balanceSheet?.otherAssets}}</strong>
+        </ion-row>
+
+        <h6 style="margin-top: 10px; margin-left: 25px; color:#fe007f; margin-bottom: 10px;">LIABILITIES</h6>
+
+        <ion-row lines="none">
+            <div id="divLiabilities" style="width:100%; height:200px;"></div>
+        </ion-row>
+        <ion-row lines="none">
+            Account Payable: <strong style="margin-left: 10px; color: #e40f0f;">{{this.dataService.currencyCode}}
+                {{userInfo?.balanceSheet?.accountPayable}}</strong>
+        </ion-row>
+        <ion-row lines="none">
+            Long Term Debt/Loan: <strong style="margin-left: 10px; color: #e40f0f;">{{this.dataService.currencyCode}}
+                {{userInfo?.balanceSheet?.longTermDebtLoan}}</strong>
+        </ion-row>
+        <ion-row lines="none">
+            Other Liabilities: <strong style="margin-left: 10px; color: #e40f0f;">{{this.dataService.currencyCode}}
+                {{userInfo?.balanceSheet?.otherLiabilities}}</strong>
+        </ion-row>
+    </span>
+
+    <span *ngIf="userInfo?.loanApplication">
+        <ion-item lines="none">
+            <ion-col
+                style="text-align: left; padding-top: 30px; padding-bottom: 10px; border-bottom: solid 1px #ebebeb; margin-bottom: 10px;"
+                class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af">
+                    Loan
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Info</span>
+                </div>
+            </ion-col>
+        </ion-item>
+        <ion-row lines="none">
+            Purpose Of Loan: <strong style="margin-left: 10px;">{{userInfo?.loanApplication?.purposeOfLoan}}</strong>
+        </ion-row>
+        <ion-row lines="none">
+            Max Loan Amount: <strong style="margin-left: 10px;">{{dataService.currencyCode}} {{userInfo?.loanApplication?.loanAmount}}</strong>
+        </ion-row>
+        <ion-row lines="none">
+            Term Of Loan: <strong style="margin-left: 10px;">{{userInfo?.loanApplication?.termOfLoan}}</strong>
+        </ion-row>
+    </span>
+
+    <span *ngIf="suggestedProductList.length>0">
+        <ion-item lines="none">
+            <ion-col
+                style="text-align: left; padding-top: 30px; padding-bottom: 10px; border-bottom: solid 1px #ebebeb; margin-bottom: 10px;"
+                class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af">
+                    Suggested
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Products</span>
+                </div>
+            </ion-col>
+        </ion-item>
+        <ion-row *ngFor="let item of suggestedProductList">
+            <ion-label>
+                <strong>{{this.dataService.currencyCode}}{{item.name}}</strong> at <strong>{{item.percentage}}%</strong> for <strong>{{item.years}}
+                    months</strong>
+            </ion-label>
+        </ion-row>
+    </span>
+
+    <span *ngIf="borrowerProduct.length>0">
+        <ion-item lines="none">
+            <ion-col
+                style="text-align: left; padding-top: 30px; padding-bottom: 10px; border-bottom: solid 1px #ebebeb; margin-bottom: 10px;"
+                class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af">
+                    Borrower Selected
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Product</span>
+                </div>
+            </ion-col>
+        </ion-item>
+        <ion-row *ngFor="let item of borrowerProduct">
+            <ion-label>
+                <strong>{{this.dataService.currencyCode}}{{item.name}}</strong> at <strong>{{item.percentage}}%</strong> for <strong>{{item.years}}
+                    months</strong>
+            </ion-label>
+        </ion-row>
+    </span>
+
+
+    <ion-row *ngIf="userInfo?.businessinfo && !(borrowerProduct.length>0);">
+        <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+            <ion-button type="submit" class="button" (click)="sendToBank()">SEND TO BANK(Reviewed)</ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-grid style="margin: 0px 15px; font-size: 20px; color: #494949; margin-top: 40px;">
+        <ion-row style="text-align: center;" *ngIf="abcd">
+            <ion-col>
+                <ion-button type="submit" class="button" (click)="accept()"><i class="fa fa-check-circle"
+                        aria-hidden="true"></i> Accept</ion-button>
+                <ion-button type="submit" class="button" (click)="reject()"><i class="fa fa-times-circle"
+                        aria-hidden="true"></i> Reject</ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;">
+            <ion-col>
+                <ion-button type="submit" class="button" (click)="done()">Done</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <br /><br />
+    <br /><br />
+</ion-content>

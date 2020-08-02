@@ -1,0 +1,7 @@
+{
+  "name": "TrustMachine",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

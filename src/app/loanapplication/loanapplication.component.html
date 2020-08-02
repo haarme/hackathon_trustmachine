@@ -1,0 +1,90 @@
+<ion-content>
+  <div style="margin-top: 30%;">
+    <ion-item lines="none">
+      <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px;"
+        class="ion-align-self-center">
+        <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+          Loan
+          <span style="font-size: 22px; font-weight: 400; color:#646464">Information</span>
+        </div>
+      </ion-col>
+    </ion-item>
+
+
+    <ion-item lines="full">
+      <ion-label>Purpose Of Loan</ion-label>
+      <ion-select value="notifications" interface="action-sheet" [(ngModel)]="purposeOfLoan">
+        <ion-select-option *ngFor="let item of purposeOfLoanTypes" value="{{item}}">
+          {{item}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Max Loan Amount</ion-label>
+      <ion-input type="text" placeholder="$ x,xx,xxx" [(ngModel)]="loanAmount" style="text-align: right;"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>Term Of Loan</ion-label>
+      <ion-input type="text" placeholder="$ x,xx,xxx" [(ngModel)]="termOfLoan" style="text-align: right;"></ion-input>
+      <ion-select value="item" interface="action-sheet" [(ngModel)]="termOfLoan" style="align-content:flex-end;">
+        <ion-select-option>
+          Less than 3 Yrs
+        </ion-select-option>
+        <ion-select-option>
+          3 to 5 Yrs
+        </ion-select-option>
+        <ion-select-option>
+          5 - 10 Yrs
+        </ion-select-option>
+        <ion-select-option>
+          Greater than 10 Yrs
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-row style="text-align: right; padding: 5px;">
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button type="submit" class="button1"><i class="fa fa-plus" style="margin-right: 5px;"></i> COLLATERAL
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-item lines="none">
+      <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px;"
+        class="ion-align-self-center">
+        <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+          Terms
+          <span style="font-size: 22px; font-weight: 400; color:#646464">and Conditions</span>
+        </div>
+      </ion-col>
+    </ion-item>
+
+    <ion-row style="margin-left:10px;">
+      <ion-col size="1">
+        <ion-checkbox value="true"></ion-checkbox>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label style="margin-left: 5px; vertical-align: middle; display: inline-block;">
+          I agree to allow Company to store and process my personal data</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-left:10px;">
+      <ion-col size="1">
+        <ion-checkbox value="true"></ion-checkbox>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label style="margin-left: 5px; vertical-align: middle; display: inline-block;">
+          I agree to allow Coach to Submit Loan on my behalf</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+        <ion-button type="submit" class="button" (click)="save()">SUBMIT</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,6 @@
+<div>
+  style="margin-top: 180px;"
+  <div *ngFor="let message of feed | async">
+    <app-message [chatMessage]=message></app-message>
+  </div>
+</div>

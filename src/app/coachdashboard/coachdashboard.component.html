@@ -1,0 +1,40 @@
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header >
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;"/>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid style="margin: 0px 15px; font-size: 20px; color: #494949; margin-top: 70px;">
+        <ion-item lines="none">
+            <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                    My
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Borrowers</span>
+                </div>
+            </ion-col>
+        </ion-item>
+
+        <ion-row *ngFor="let item of borrowerList;" style="margin: 0px; padding: 0px; margin-bottom: 10px; border-bottom: groove 1px #d3d3d3; padding-bottom: 5px;">
+            <ion-col size="2" style=" padding: 10px; text-align: right;">
+                <img [src]="item?.avatarUrl"
+                    onerror="this.onerror=null;
+                    this.src='assets/images/profile.png';" 
+                    style="width: 20px; height: 20px; border-radius: 50%;"/>
+            </ion-col>
+            <ion-col size="6" (click)="chooseBorrower(item)">
+                <strong style="font-size: 14px; color: #383838; margin-bottom: 3px;">{{item?.name}}</strong>
+            </ion-col>
+            <ion-col size="3">
+                <i class="fa fa-comments fa-1x" style="margin-right: 25px;" aria-hidden="true" (click)="chat(item)"></i>
+                <i class="fa fa-address-book-o fa-1x" aria-hidden="true" (click)="review(item)"></i>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

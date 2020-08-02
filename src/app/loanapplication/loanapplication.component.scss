@@ -1,0 +1,54 @@
+.button {
+    --width: 60px;
+    --border-radius: 20px;
+    --vertical-align: middle;
+    --padding-start: 30px;
+    --padding-end: 30px;
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    --background: #dfb800;
+    --color:#ffffff;
+    --font-weight: bold;
+  }
+
+  .button1 {
+    --width: 60px;
+    --border-radius: 20px;
+    --vertical-align: middle;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    --background: transparent;
+    --color:#494949;
+    --font-weight: bold;
+  }
+  
+  :host {
+    ion-content {
+        --background: url('../../assets/images/bg_main_1.png') no-repeat 100% 100%;
+    }
+
+    ion-item {
+        color:#141414;
+        --background: transparent;
+    }
+
+    ion-label {
+        color:#141414;
+    }
+
+    ion-select {
+        color:#141414;
+        font-weight: bold;
+    }
+
+    ion-input {
+        color:#141414;
+        font-weight: bold;
+    }
+
+    ion-toolbar {
+        --background: #694ed6;
+    }
+}

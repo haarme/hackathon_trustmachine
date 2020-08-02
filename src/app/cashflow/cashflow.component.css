@@ -1,0 +1,14 @@
+
+
+.button {
+    --width: 60px;
+    --border-radius: 20px;
+    --vertical-align: middle;
+    --padding-start: 30px;
+    --padding-end: 30px;
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    --background: #dfb800;
+    --color:#ffffff;
+    --font-weight: bold;
+  }

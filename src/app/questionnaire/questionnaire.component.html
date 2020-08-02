@@ -1,0 +1,43 @@
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;" />
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="--background: #f3f3f305;">
+    <ion-card style="margin-bottom: 20px;">
+        <h3>Questionnaire</h3>
+        <p>The aim of this questionnaire is to explore the awareness about the meaning and also the importance of
+            microfinance.</p>
+        <p>This questionnaire consists of 35 questions and will only take 5 to 10 minutes to complete. Your contribution
+            will be much appreciated.</p>
+    </ion-card>
+    <ion-grid *ngFor="let item of questionnaireList; let i = index"
+        style="margin: 0px 15px; font-size: 20px; color: #494949;">
+        <ion-row>
+            <ion-col><strong>{{i + 1}}. {{item.question}}</strong></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-radio-group [value]="i">
+                <ion-row *ngFor="let opt of item.options" class="ion-text-wrap" style="margin: 10px;">
+                    <ion-col size="1">
+                        <ion-radio [value]="opt" color="secondary"></ion-radio>
+                    </ion-col>
+                    <ion-col size="10">
+                        <ion-label style="vertical-align: middle; display: inline-block;">{{opt}}</ion-label>
+                    </ion-col>
+                </ion-row>
+            </ion-radio-group>
+        </ion-row>
+    </ion-grid>
+    <ion-row>
+        <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+            <ion-button type="submit" class="button" (click)="completeTest()">COMPLETE</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

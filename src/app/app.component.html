@@ -1,0 +1,17 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+
+    <div style="position: fixed; top:0px; height: 100%; width: 100%; background-color: #000000b2; " *ngIf="dataService.loading$.value">
+      <div style="position: fixed; top:20%; left: 10%; text-align: center; padding-top: 40px; height: 40%; width: 80%;
+        border-radius: 50px; padding-bottom: 40px;">
+        <!--  background-color: #000022; <img src="assets/images/logo-tm2.png" style="width: 80px;" /> -->
+        <div style="margin-top: 20px; color: #b8b8b8; text-align: center;">
+            <div class="loadingio-spinner-chunk-lxun6gamf49"><div class="ldio-kfn14qh03yj">
+                <div><div><div></div><div></div><div></div><div></div></div></div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+</ion-app>

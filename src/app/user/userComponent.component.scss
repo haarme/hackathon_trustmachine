@@ -1,0 +1,49 @@
+:host {
+    ion-content {
+        --background: url('../../assets/images/bg_main.png') no-repeat 100% 100%;
+        --text-align: center;
+    }
+
+    ion-content.coachalert {
+        --background: #f1ef75;
+        height: 35px;
+    }
+
+    ion-item {
+        --background: transparent;
+        color: #ffffff;
+    }
+
+    ion-label {
+        color:#ffffff;
+    }
+
+    ion-select {
+        color:#ffffff;
+        font-weight: bold;
+    }
+
+    ion-header {
+        color:#ffffff;
+        --background: red;
+    }
+
+    ion-toolbar {
+        --background: #694ed6;
+    }
+    
+    ion-toolbar.coachalert {
+        --background: #d64eb8;
+    }
+
+    ion-list {
+        --background: red;
+    }
+
+    ion-list {
+        --background: red;
+        ion-item {
+            --background: transparent;
+        }
+    }
+}

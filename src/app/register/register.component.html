@@ -1,0 +1,34 @@
+<ion-content>
+    <div style="margin: 40px;">
+        <ion-item lines="none">
+            <ion-col style="  text-align: left; padding-top: 20px; padding-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 30px; font-weight: bold; color:#ffffff">Create</div>
+                <div style="font-size: 20px; font-weight: 400; color:#fed100">New Account</div>
+            </ion-col>
+        </ion-item>
+
+        <ion-item lines="full" style="margin-top: 20%;">
+            <ion-label position="floating">EMAIL</ion-label>
+            <ion-input [(ngModel)]="email" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-row style="width: 100%;">
+                <ion-col size="10">
+                    <ion-label position="floating">PASSWORD</ion-label>
+                    <ion-input #input [(ngModel)]="password" type="password"></ion-input>
+                </ion-col>
+                <ion-col size="2" style="padding-top: 30px;">
+                    <i class="fa fa-eye-slash fa-1x" *ngIf="!passwordCheckbox" (click)="showPassword(input)"></i>
+                    <i class="fa fa-eye fa-1x" *ngIf="passwordCheckbox" (click)="showPassword(input)"></i>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+
+        <ion-row>
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button type="submit" class="button" (click)="next()">NEXT</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

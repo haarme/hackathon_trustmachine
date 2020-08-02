@@ -1,0 +1,29 @@
+<ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header >
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;"/>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="card-background-page">
+    <div style="height: 90%; overflow: scroll; padding-bottom: 50px;" #scrollMe>
+        <div style="margin: 20px;" *ngFor="let message of feed | async">
+            <app-message [chatMessage]=message [recieverEmail]=recieverEmailAddress></app-message>
+        </div>
+    </div>
+
+    <ion-footer style="position: fixed; bottom: 0px; margin-bottom: 10px;">
+        <ion-row>
+            <ion-col size="8">
+                <ion-input style="margin-top: 3px; margin-left: 5px;" [(ngModel)]="chatMessage" type="text" required></ion-input>
+            </ion-col>
+            <ion-col size="4" style="text-align: end;">
+                <ion-button type="submit" (click)="send()">SEND</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-footer>
+</ion-content>

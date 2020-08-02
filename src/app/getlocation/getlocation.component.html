@@ -1,0 +1,38 @@
+<div id="map_canvas" style="width:100%;height:300px; ">
+    <img src="../../assets/images/map-dot.png" style="position:absolute;left:50%;bottom:50%;width:30px;height:41px" />
+</div>
+
+<ion-content>
+    <div style="margin: 20px; background-color: transparent;" class="maincontainer">
+        <ion-item lines="none">
+            <ion-col style="  text-align: left; padding-top: 20px; padding-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 30px; font-weight: bold; color:#ffffff">Select</div>
+                <div style="font-size: 20px; font-weight: 400; color:#fed100">Location & Language</div>
+            </ion-col>
+        </ion-item>
+
+        <ion-item lines="none" style="margin-top: 30px;">
+            <ion-label>Language</ion-label>
+            <ion-select value="notifications" interface="action-sheet" [(ngModel)]="languageId">
+                <ion-select-option *ngFor="let item of languageList" value="{{item.name}}">
+                    {{item.name}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item lines="none">
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button class="button" (click)="next()">Next</ion-button>
+            </ion-col>
+        </ion-item>
+    </div>    
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-title style="text-align: center;">
+            <ion-button class="button-1" (click)="login()">Login</ion-button>
+        </ion-title>
+    </ion-toolbar>
+</ion-footer>
+
+<!-- <ion-button (click)="setCurrentPinLocation()" class="sign-in-btn" expand="block">Set Location</ion-button> -->

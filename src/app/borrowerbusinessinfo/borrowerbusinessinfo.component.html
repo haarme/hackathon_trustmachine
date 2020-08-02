@@ -1,0 +1,88 @@
+<!-- <ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header >
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;"/>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="--background: #f3f3f305;">
+    <ion-grid style="margin: 0px 15px; font-size: 20px; color: #494949; margin-top: 40px;">
+        <ion-row style="margin-bottom: 10px;">
+            <ion-col><h3>Borrower Business Information</h3>
+                
+            </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;">
+            <ion-col>
+                <ion-button type="submit" class="button"><i class="fa fa-check-circle" aria-hidden="true"></i> Save</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content> -->
+
+
+<ion-content>
+    <div style="margin-top: 30%;">
+        <ion-item lines="none">
+            <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px;" class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                    Business
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Information</span>
+                </div>
+            </ion-col>
+        </ion-item>
+
+        
+        <ion-item lines="full">
+            <ion-label>IS YOUR BUSINESS</ion-label>
+            <ion-radio-group [(ngModel)]="isBusinessNew">
+                <ion-item style="float: left;">
+                    <ion-radio value="true"></ion-radio>
+                    <ion-label style="margin-left: 5px;">New</ion-label>
+                </ion-item>
+              
+                <ion-item style="float: left;">
+                    <ion-radio value="false"></ion-radio>
+                    <ion-label style="margin-left: 5px;">Existing</ion-label>
+                </ion-item>
+            </ion-radio-group>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label>NATURE OF BUSINESS</ion-label>
+            <ion-select placeholder="Select One" interface="action-sheet" [(ngModel)]="business">
+                <ion-select-option *ngFor="let item of businessList" value="{{item}}">
+                    {{item}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label>YEARS IN BUSINESS</ion-label>
+            <ion-select placeholder="Select One" interface="action-sheet" [(ngModel)]="year">
+                <ion-select-option *ngFor="let item of yearList" value="{{item.yearName}}">
+                    {{item.yearRange}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label># EMPLOYEES</ion-label>
+            <ion-select placeholder="Select One" interface="action-sheet" [(ngModel)]="employees">
+                <ion-select-option *ngFor="let item of employeesList" value="{{item.employeeListName}}">
+                    {{item.employeeRange}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+  
+        <ion-row>
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button type="submit" class="button" (click)="save()">SAVE</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

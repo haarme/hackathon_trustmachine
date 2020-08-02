@@ -1,0 +1,87 @@
+<!-- <ion-router-outlet id="menuContent"></ion-router-outlet>
+<ion-header >
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <img src="assets/images/logo-tm.png" style="padding-left:20px; width: 120px;"/>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content style="--background: #f3f3f305;">
+    <ion-grid style="margin: 0px 15px; font-size: 20px; color: #494949; margin-top: 40px;">
+        <ion-row style="margin-bottom: 10px;">
+            <ion-col><h3>Borrower Business Information</h3>
+                
+            </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center;">
+            <ion-col>
+                <ion-button type="submit" class="button"><i class="fa fa-check-circle" aria-hidden="true"></i> Save</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content> -->
+
+
+<ion-content>
+    <div style="margin-top: 20%;">
+        <ion-item lines="none">
+            <ion-col style="text-align: left; padding-top: 30px; padding-bottom: 10px;;" class="ion-align-self-center">
+                <div style="font-size: 22px; font-weight: bold; color:#694ed6af; padding-right: 10px;">
+                    Balance
+                    <span style="font-size: 22px; font-weight: 400; color:#646464">Sheet</span>
+                </div>
+            </ion-col>
+            <ion-col>
+                <ion-button type="submit" class="button" style="margin-top: 10%;">UPLOAD</ion-button>
+            </ion-col>
+        </ion-item>
+
+        <h3 style="margin-left: 15px; color:#fe007f; margin-bottom: 10px;">ASSETS</h3>
+
+        <ion-item lines="full">
+            <ion-label position="floating">CASH AND CASH EQUIVALENT</ion-label>
+            <ion-input [(ngModel)]="cashAndCashEquivalent" type="text" placeholder="$ x,xx,xxx"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">ACCOUNTS RECEIVABLE</ion-label>
+            <ion-input [(ngModel)]="accountsReceivable" type="text" placeholder="$ x,xx,xxx"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">INVENTORY</ion-label>
+            <ion-input [(ngModel)]="inventory" type="text" placeholder="$ x,xx,xxx"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">OTHER ASSETS</ion-label>
+            <ion-input [(ngModel)]="otherAssets" type="text" placeholder="$ x,xx,xxx"></ion-input>
+        </ion-item>
+
+        <h3 style="margin-top: 10%; margin-left: 15px; color:#fe007f; margin-bottom: 10px;">LIABILITIES</h3>
+
+        <ion-item lines="full">
+            <ion-label position="floating">ACCOUNT PAYABLE</ion-label>
+            <ion-input [(ngModel)]="accountPayable" type="text" placeholder="$ x,xx,xxx"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">LONG TERM DEBT/LOAN</ion-label>
+            <ion-input [(ngModel)]="longTermDebtLoan" type="text" placeholder="$ x,xx,xxx"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">OTHER LIABILITIES</ion-label>
+            <ion-input [(ngModel)]="otherLiabilities" type="text" placeholder="$ x,xx,xxx"></ion-input>
+        </ion-item>
+
+        <ion-row>
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button type="submit" class="button" (click)="save()">SAVE</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-content *ngIf="!loading" style="text-align: center;">
+    <img src="assets/images/logo-tm2.png" style="padding:10px; width: 160px; margin-top: 10%;" />
+    <!-- <ion-buttons style="text-align: center; position: relative; left: 30%; top: 10%;"> -->
+    <!-- </ion-buttons> -->
+
+    <div style="margin: 40px; margin-top: 10%;">
+        <ion-item lines="full">
+            <ion-label position="floating">EMAIL</ion-label>
+            <ion-input type="text" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">PASSWORD</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <ion-row>
+            <ion-col style="text-align: center; margin-top: 20px;" class="ion-align-self-center">
+                <ion-button type="submit" class="button" (click)="login()">Login</ion-button>
+            </ion-col>
+        </ion-row>
+    </div>
+    <div style="margin: 40px; color: #b8b8b8; text-align: center;">
+        Don't have an account? <a (click)="signUp()">Sign up</a>
+    </div>
+</ion-content>
