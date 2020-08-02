@@ -1,4 +1,4 @@
-﻿# hackathon_trustmachine
+﻿# Vista Hackathon - Trustmachine
 HOW TO SETUP:
 
 Configure firebase project using google cloud and the firebase console
